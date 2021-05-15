@@ -1,0 +1,67 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "59cae60f2360f525f1a1af2fe7832e15",
+    "packages": [
+        {
+            "name": "metaverse-systems/multichain-php-client",
+            "version": "v0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/metaverse-systems/multichain-php-client.git",
+                "reference": "5781f9159c366e44360117567cd831f104d65f0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/metaverse-systems/multichain-php-client/zipball/5781f9159c366e44360117567cd831f104d65f0b",
+                "reference": "5781f9159c366e44360117567cd831f104d65f0b",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MetaverseSystems\\MultiChain\\MultiChainProvider"
+                    ],
+                    "aliases": {
+                        "MultiChain": "MetaverseSystems\\MultiChain\\Facades\\MultiChain"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "App\\": "app/",
+                    "MetaverseSystems\\MultiChain\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Schwartz",
+                    "email": "tim@metaverse.systems"
+                }
+            ],
+            "description": "PHP package for communicating with MultiChain node",
+            "support": {
+                "issues": "https://github.com/metaverse-systems/multichain-php-client/issues",
+                "source": "https://github.com/metaverse-systems/multichain-php-client/tree/v0.9.1"
+            },
+            "time": "2021-05-15T01:36:47+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

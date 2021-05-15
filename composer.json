@@ -9,7 +9,9 @@
             "email": "tim@metaverse.systems"
         }
     ],
-    "require": {},
+    "require": {
+        "metaverse-systems/multichain-php-client": "^0.9.1"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
@@ -19,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MetaverseSystems\\EloquentMultiChainBridge\\EloquentMultiChainBridgeProvider"
+                "MetaverseSystems\\EloquentMultiChainBridge\\EloquentMultiChainProvider"
             ]
         }
     }
