@@ -14,6 +14,12 @@ trait EloquentMultiChainBridge
 {
     use SoftDeletes;
 
+    protected function initializeEloquentMultiChainBridge()
+    {
+        $this->keyType = "string";
+        $this->incrementing = false;
+    }
+
     public static function boot()
     {
         parent::boot();
@@ -48,9 +54,14 @@ trait EloquentMultiChainBridge
         if($user) $data['created_by'] = $user->id;
         else $data['created_by'] = '00000000-0000-0000-0000-000000000000';
 
+        $entry = array(
+            'tableName'=>with(new static)->getTable(),
+            'tableData'=>$data
+        );
+
         try
         {
-            $txid = MultiChain::publish($stream, $data['id'], bin2hex(json_encode($data)));
+            $txid = MultiChain::publish($stream, $data['id'], bin2hex(json_encode($entry)));
         }
         catch(Exception $e)
         {
@@ -62,9 +73,10 @@ trait EloquentMultiChainBridge
 
     private static function getModelStream()
     {
-        if(isset(self::$stream)) return $self::stream;
+        $c = new static();
+        if(isset($c->stream)) return $c->stream;
 
-        $className = get_class(new static());
+        $className = get_class($c);
         $stream = DataStreamRegistry::where('class_name', $className)->first();
         if(!$stream)
         {
