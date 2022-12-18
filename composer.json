@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "metaverse-systems/multichain-php-client": "dev-main"
+        "metaverse-systems/multichain-php-client": "^1.0"
     },
     "autoload": {
         "psr-4": {
