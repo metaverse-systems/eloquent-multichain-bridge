@@ -32,6 +32,10 @@ class EloquentMultiChainProvider extends ServiceProvider
         {
             require __DIR__.'/Routes.php';
         }
+
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path('eloquent-multichain-bridge.php'),
+        ], 'config');
     }
 }
 

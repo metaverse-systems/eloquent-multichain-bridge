@@ -47,6 +47,8 @@ trait EloquentMultiChainBridge
 
     private static function chainUpdate($model)
     {
+        if(config('eloquent-multichain-bridge.disabled') == true) return;
+
         $stream = self::getModelStream(); 
         $user = Auth::user();
 
