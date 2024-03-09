@@ -10,5 +10,5 @@ class DataStreamRegistry extends Model
 {
     use HasFactory, EloquentMultiChainBridge;
 
-    protected $stream = "data-stream-registry";
+    protected $stream = "DataStreamRegistry";
 }

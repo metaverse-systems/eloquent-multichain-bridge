@@ -45,13 +45,13 @@ class RegisterDataStream extends Command
 
         try
         {
-            $streams = MultiChain::liststreams("data-stream-registry");
+            $streams = MultiChain::liststreams("DataStreamRegistry");
         }
         catch (Exception $e)
         {
             try
             {
-                MultiChain::create("stream", "data-stream-registry", false);
+                MultiChain::create("stream", "DataStreamRegistry", false);
             }
             catch(Exception $ce)
             {
@@ -60,12 +60,12 @@ class RegisterDataStream extends Command
             }
         }
 
-        $streams = MultiChain::liststreams("data-stream-registry");
+        $streams = MultiChain::liststreams("DataStreamRegistry");
         if(!$streams[0]->subscribed)
         {
             try
             {
-                MultiChain::subscribe("data-stream-registry");
+                MultiChain::subscribe("DataStreamRegistry");
             }
             catch(Exception $e)
             {
