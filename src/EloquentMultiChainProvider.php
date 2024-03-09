@@ -4,6 +4,8 @@ namespace MetaverseSystems\EloquentMultiChainBridge;
 
 use Illuminate\Support\ServiceProvider;
 use MetaverseSystems\EloquentMultiChainBridge\Commands\RegisterDataStream;
+use MetaverseSystems\EloquentMultiChainBridge\Commands\SyncStreamFromChain;
+use MetaverseSystems\EloquentMultiChainBridge\Commands\SyncChainFromModels;
 
 class EloquentMultiChainProvider extends ServiceProvider
 {
@@ -15,7 +17,9 @@ class EloquentMultiChainProvider extends ServiceProvider
     public function register()
     {
         $this->commands([
-            RegisterDataStream::class
+            RegisterDataStream::class,
+            SyncStreamFromChain::class,
+            SyncChainFromModels::class
         ]);
     }
 

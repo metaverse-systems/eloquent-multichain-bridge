@@ -9,6 +9,7 @@ use Exception;
 use ErrorException;
 use Str;
 use Auth;
+use DateTimeInterface;
 
 trait EloquentMultiChainBridge
 {
@@ -45,7 +46,7 @@ trait EloquentMultiChainBridge
         });
     }
 
-    private static function chainUpdate($model)
+    public static function chainUpdate($model)
     {
         if(config('eloquent-multichain-bridge.disabled') == true) return;
 
@@ -53,8 +54,6 @@ trait EloquentMultiChainBridge
         $user = Auth::user();
 
         $data = $model->toArray();
-        if($user) $data['created_by'] = $user->id;
-        else $data['created_by'] = '00000000-0000-0000-0000-000000000000';
 
         $entry = array(
             'tableName'=>with(new static)->getTable(),
@@ -73,7 +72,7 @@ trait EloquentMultiChainBridge
         }
     }
 
-    private static function getModelStream()
+    public static function getModelStream()
     {
         $c = new static();
         if(isset($c->stream)) return $c->stream;
@@ -85,5 +84,10 @@ trait EloquentMultiChainBridge
             throw new ErrorException("$className is not registered to a data stream.");
         }
         return $stream->data_stream;
+    }
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }
