@@ -68,7 +68,7 @@ trait EloquentMultiChainBridge
         {
             $message = "Error saving ".get_class(new static())." to $stream.\n";
             $message.= $e->getMessage();
-            throw ErrorException($message);
+            throw new ErrorException($message);
         }
     }
 
