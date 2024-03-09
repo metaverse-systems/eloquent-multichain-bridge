@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use MetaverseSystems\EloquentMultiChainBridge\Commands\RegisterDataStream;
 use MetaverseSystems\EloquentMultiChainBridge\Commands\SyncStreamFromChain;
 use MetaverseSystems\EloquentMultiChainBridge\Commands\SyncChainFromModels;
+use MetaverseSystems\EloquentMultiChainBridge\Commands\NewBlock;
 
 class EloquentMultiChainProvider extends ServiceProvider
 {
@@ -19,7 +20,8 @@ class EloquentMultiChainProvider extends ServiceProvider
         $this->commands([
             RegisterDataStream::class,
             SyncStreamFromChain::class,
-            SyncChainFromModels::class
+            SyncChainFromModels::class,
+            NewBlock::class
         ]);
     }
 
